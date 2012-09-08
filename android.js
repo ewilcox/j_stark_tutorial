@@ -36,3 +36,13 @@ function loadPage(url) {
         $('#progress').remove();
     });
 }
+function hijackLinks() {
+    $('#container a').click(function(e){
+        e.preventDefault();
+        loadPage(e.target.href);
+    });
+    var title = $('h2').html() || 'Hello!';
+$('h1').html(title);
+$('h2').remove();
+    $('#progress').remove();
+}
